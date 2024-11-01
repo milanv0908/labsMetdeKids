@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - posst
+  - p1
+  - p2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - post
   - Water
   - UI
   - 
