@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AislesAmount : MonoBehaviour
 {
     public PlayerCounting[] script; // Array van speler scripts
     public float[] aislePrices; // Array voor prijzen van de schappen
+
+    public TextMeshProUGUI textp1, textp2;
 
     void Start()
     {
@@ -49,9 +52,20 @@ public class AislesAmount : MonoBehaviour
 
           foreach (PlayerCounting script in script)
           {
-              script.purchaseAmount = price; // Verander de purchaseAmount in script
+             script.purchaseAmount = price; // Verander de purchaseAmount in script
              script.isInTrigger = true; // Zet isInTrigger naar true
           }
+
+        if (other.CompareTag("p1"))
+            {
+                textp1.gameObject.SetActive(true);  // Maak textp1 zichtbaar
+                textp1.text = "Prijs voor dit item is " + ": €" + price;
+            }
+        else if (other.CompareTag("p2"))
+            {
+                textp2.gameObject.SetActive(true);  // Maak textp2 zichtbaar
+                textp2.text = "Prijs voor dit item is " + ": €" + price;
+            }
         
              Debug.Log("De prijs voor schap " + aisleTag + " is: " + price);
          }
@@ -66,6 +80,15 @@ public class AislesAmount : MonoBehaviour
                 script.purchaseAmount = 0f; // Reset de purchaseAmount in script
                 script.isInTrigger = false; // Zet isInTrigger naar false
             }
+
+            if (other.CompareTag("p1"))
+                {
+                    textp1.gameObject.SetActive(false);  // Maak textp1 zichtbaar
+                }
+            else if (other.CompareTag("p2"))
+                {
+                    textp2.gameObject.SetActive(false);  // Maak textp2 zichtbaar
+                }
         }
     }
 }
