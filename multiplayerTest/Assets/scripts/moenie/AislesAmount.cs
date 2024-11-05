@@ -12,7 +12,7 @@ public class AislesAmount : MonoBehaviour
 
     void Start()
     {
-        aislePrices = new float[] { 10f, 20f, 30f, 40f, 50f, 60f }; // Dit zijn de prijzen van de schappen s1 t/m s6
+        aislePrices = new float[] { 12f, 25f, 9f, 15f, 22f, 18f }; // Dit zijn de prijzen van de schappen s1 t/m s6
 
         for (int i = 0; i < aislePrices.Length; i++)
         {
